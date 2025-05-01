@@ -1,0 +1,27 @@
+[
+  {
+    "log": "что-то пошло не так",
+    "time": "2025-05-01 13:55:05",
+    "level": "FATAL"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-01 13:55:05",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-01 13:53:06",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-01 13:50:55",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-01 13:49:07",
+    "level": "INFO"
+  }
+]

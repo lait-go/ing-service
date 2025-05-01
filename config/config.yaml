@@ -1,0 +1,5 @@
+env: "local"
+address: ":8080"
+path:
+  log_path: "../log/log_storage.json"
+  error_path: "../internal/err/error_log.json"
