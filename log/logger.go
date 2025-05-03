@@ -21,7 +21,7 @@ type readLog struct {
 	Level string  `json:"level"`
 }
 
-func (logStruct *LogStruct) Info(message interface{}) {
+func (logStruct *LogStruct) Info(message any) {
 	res := utils.FormInit(message)
 	logStruct.Logger.Info(res)
 
@@ -34,7 +34,7 @@ func (logStruct *LogStruct) Info(message interface{}) {
 	ReadLog(pars)
 }
 
-func (logStruct *LogStruct) Fatal(message interface{}){
+func (logStruct *LogStruct) Fatal(message any){
 	res := utils.FormInit(message)
 	logStruct.Logger.Error(res)
 	
@@ -49,7 +49,7 @@ func (logStruct *LogStruct) Fatal(message interface{}){
 	ReadLog(pars)
 }
 
-func (logStruct *LogStruct) Debug(message interface{}) {
+func (logStruct *LogStruct) Debug(message any) {
 	res := utils.FormInit(message)
 	logStruct.Logger.Debug(res)
 
@@ -62,7 +62,7 @@ func (logStruct *LogStruct) Debug(message interface{}) {
 	ReadLog(pars)
 }
 
-func (logStruct *LogStruct) Warn(message interface{}) {
+func (logStruct *LogStruct) Warn(message any) {
 	res := utils.FormInit(message)
 	logStruct.Logger.Warn(res)
 
@@ -75,7 +75,7 @@ func (logStruct *LogStruct) Warn(message interface{}) {
 	ReadLog(pars)
 }
 
-func (logStruct *LogStruct) Error(message interface{}) {
+func (logStruct *LogStruct) Error(message any) {
 	res := utils.FormInit(message)
 	logStruct.Logger.Error(res)
 

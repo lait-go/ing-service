@@ -1,5 +1,250 @@
 [
   {
+    "log": "база данных в норме",
+    "time": "2025-05-03 14:33:03",
+    "level": "INFO"
+  },
+  {
+    "log": "логер и конфигурации созданы",
+    "time": "2025-05-03 14:33:02",
+    "level": "INFO"
+  },
+  {
+    "log": "база данных в норме",
+    "time": "2025-05-03 14:30:44",
+    "level": "INFO"
+  },
+  {
+    "log": "логер и конфигурации созданы",
+    "time": "2025-05-03 14:30:44",
+    "level": "INFO"
+  },
+  {
+    "log": "база данных в норме",
+    "time": "2025-05-03 14:30:16",
+    "level": "INFO"
+  },
+  {
+    "log": "логер и конфигурации созданы",
+    "time": "2025-05-03 14:30:15",
+    "level": "INFO"
+  },
+  {
+    "log": "база данных в норме",
+    "time": "2025-05-03 14:30:04",
+    "level": "INFO"
+  },
+  {
+    "log": "логер и конфигурации созданы",
+    "time": "2025-05-03 14:30:03",
+    "level": "INFO"
+  },
+  {
+    "log": "база данных в норме",
+    "time": "2025-05-03 14:25:59",
+    "level": "INFO"
+  },
+  {
+    "log": "логер и конфигурации созданы",
+    "time": "2025-05-03 14:25:58",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 14:12:36",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 14:07:54",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 14:05:25",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 14:03:44",
+    "level": "INFO"
+  },
+  {
+    "log": "таблица создана",
+    "time": "2025-05-03 13:58:26",
+    "level": "INFO"
+  },
+  {
+    "log": "создание таблицы",
+    "time": "2025-05-03 13:58:26",
+    "level": "INFO"
+  },
+  {
+    "log": "таблица не существует",
+    "time": "2025-05-03 13:58:26",
+    "level": "DEBUG"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:58:25",
+    "level": "INFO"
+  },
+  {
+    "log": "таблица создана",
+    "time": "2025-05-03 13:58:03",
+    "level": "INFO"
+  },
+  {
+    "log": "создание таблицы",
+    "time": "2025-05-03 13:58:03",
+    "level": "INFO"
+  },
+  {
+    "log": "таблица не существует",
+    "time": "2025-05-03 13:58:03",
+    "level": "DEBUG"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:58:02",
+    "level": "INFO"
+  },
+  {
+    "log": "таблица создана",
+    "time": "2025-05-03 13:57:03",
+    "level": "INFO"
+  },
+  {
+    "log": "создание таблицы",
+    "time": "2025-05-03 13:57:03",
+    "level": "INFO"
+  },
+  {
+    "log": "таблица не существует",
+    "time": "2025-05-03 13:57:03",
+    "level": "DEBUG"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:57:02",
+    "level": "INFO"
+  },
+  {
+    "log": "таблица создана",
+    "time": "2025-05-03 13:55:56",
+    "level": "INFO"
+  },
+  {
+    "log": "создание таблицы",
+    "time": "2025-05-03 13:55:55",
+    "level": "INFO"
+  },
+  {
+    "log": "таблица не существует",
+    "time": "2025-05-03 13:55:55",
+    "level": "DEBUG"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:55:54",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:53:29",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:52:28",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:51:40",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:50:13",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:50:06",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:49:58",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:49:03",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:48:22",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:44:46",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:44:01",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:43:49",
+    "level": "INFO"
+  },
+  {
+    "log": "ошибка при чтении бд, проверьте ключ",
+    "time": "2025-05-03 13:42:22",
+    "level": "FATAL"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:42:21",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:41:35",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:41:17",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:39:39",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:24:12",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 13:23:07",
+    "level": "INFO"
+  },
+  {
+    "log": "logger and configuration init",
+    "time": "2025-05-03 11:41:30",
+    "level": "INFO"
+  },
+  {
     "log": "что-то пошло не так",
     "time": "2025-05-01 13:55:05",
     "level": "FATAL"

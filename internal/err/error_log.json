@@ -1,0 +1,142 @@
+[
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 14:05:25"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 14:03:44"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-03 13:58:26"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:58:26"
+  },
+  {
+    "error": "pq: syntax error at or near \"{\"",
+    "time": "2025-05-03 13:58:03"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-03 13:58:03"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:58:02"
+  },
+  {
+    "error": "pq: syntax error at or near \"{\"",
+    "time": "2025-05-03 13:57:03"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-03 13:57:03"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:57:02"
+  },
+  {
+    "error": "pq: syntax error at or near \"{\"",
+    "time": "2025-05-03 13:55:56"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-03 13:55:55"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:55:55"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:53:29"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:52:28"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:51:40"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:50:14"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:50:07"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:49:58"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:49:03"
+  },
+  {
+    "error": "invalid argument",
+    "time": "2025-05-03 13:48:23"
+  },
+  {
+    "error": "open ./db/migrations/check_table.sql: no such file or directory",
+    "time": "2025-05-03 13:48:23"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:48:22"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:44:46"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:44:01"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:43:49"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:42:21"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:41:35"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:41:17"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:39:39"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-03 13:24:13"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:24:13"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-03 13:23:08"
+  },
+  {
+    "error": "Not Found",
+    "time": "2025-05-03 13:23:07"
+  },
+  {
+    "error": "Error while creating bot",
+    "time": "2025-05-03 11:41:30"
+  }
+]

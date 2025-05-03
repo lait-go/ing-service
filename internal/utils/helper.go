@@ -34,13 +34,13 @@ func TimeFormat() string {
 	return time.Now().Format("2006-01-02 15:04:05")
 }
 
-func FormInit(date interface{})string{
-	switch date.(type){
-	 	case string:
-			return date.(string)
-		case error:
-			return date.(error).Error()
-		default:
+func FormInit(date any) string {
+	switch v := date.(type) {
+	case string:
+		return v
+	case error:
+		return v.Error()
+	default:
+		return ""
 	}
-	return ""
 }

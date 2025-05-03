@@ -2,6 +2,7 @@ package main
 
 import (
 	conf "tg_res/config"
+	"tg_res/db"
 	Error "tg_res/internal/err"
 	LogWork "tg_res/log"
 
@@ -11,13 +12,13 @@ import (
 func main() {
 	conf.Cfg = conf.Config_work()
 	logger := LogWork.LogInit()
-	logger.Info("logger and configuration init")
+	logger.Info("логер и конфигурации созданы")
 
 	bot, err := tgbotapi.NewBotAPI(conf.Token)
 	if Error.GetErr(err) {
-		logger.Fatal(err)
+		logger.Fatal("ошибка при принятии токена")
 	}
-
+	db.ProcessingDB()
 
 
 
