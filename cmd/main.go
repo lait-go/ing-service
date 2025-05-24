@@ -3,10 +3,10 @@ package main
 import (
 	conf "tg_res/config"
 	"tg_res/db"
-	Error "tg_res/internal/err"
-	LogWork "tg_res/log"
+	bot_tg "tg_res/internal/bot"
 
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	// Error "tg_res/internal/err"
+	LogWork "tg_res/log"
 )
 
 func main() {
@@ -14,43 +14,39 @@ func main() {
 	logger := LogWork.LogInit()
 	logger.Info("логер и конфигурации созданы")
 
-	bot, err := tgbotapi.NewBotAPI(conf.Token)
-	if Error.GetErr(err) {
-		logger.Fatal("ошибка при принятии токена")
-	}
+	
+
 	db.ProcessingDB()
 
+	defer db.Db.Close()
 
+	bot_tg.TgInit()
 
-	u := tgbotapi.NewUpdate(0)
-	u.Timeout = 60
-	updates := bot.GetUpdatesChan(u)
+	// keyboard := tgbotapi.NewReplyKeyboard(
+	// 	tgbotapi.NewKeyboardButtonRow(
+	// 		tgbotapi.NewKeyboardButton("Добавить резюме"),
+	// 		tgbotapi.NewKeyboardButton("Поиск"),
+	// 	),
+	// )
 
-	keyboard := tgbotapi.NewReplyKeyboard(
-		tgbotapi.NewKeyboardButtonRow(
-			tgbotapi.NewKeyboardButton("Добавить резюме"),
-			tgbotapi.NewKeyboardButton("Поиск"),
-		),
-	)
+	// for update := range updates {
+	// 	if update.Message == nil {
+	// 		continue
+	// 	}
 
-	for update := range updates {
-		if update.Message == nil {
-			continue
-		}
+	// 	text := map[string]string{
+	// 		"Добавить резюме": bot_tg.RegistationUser(),
+	// 		"Поиск":           "Введите критерии для поиска.",
+	// 	}[update.Message.Text]
 
-		text := map[string]string{
-			"Добавить резюме": "Пожалуйста, отправьте ваше резюме.",
-			"Поиск":           "Введите критерии для поиска.",
-		}[update.Message.Text]
+	// 	if text == "" {
+	// 		text = "Выберите действие с помощью кнопок ниже."
+	// 	}
 
-		if text == "" {
-			text = "Выберите действие с помощью кнопок ниже."
-		}
-
-		msg := tgbotapi.NewMessage(update.Message.Chat.ID, text)
-		msg.ReplyMarkup = keyboard
-		bot.Send(msg)
-	}
+	// 	msg := tgbotapi.NewMessage(update.Message.Chat.ID, text)
+	// 	msg.ReplyMarkup = keyboard
+	// 	bot.Send(msg)
+	// }
 }
 
 

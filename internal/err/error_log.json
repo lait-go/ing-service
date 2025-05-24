@@ -1,5 +1,57 @@
 [
   {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-22 18:37:53"
+  },
+  {
+    "error": "unexpected end of JSON input",
+    "time": "2025-05-22 16:10:47"
+  },
+  {
+    "error": "write ../log/log_storage.json: no space left on device",
+    "time": "2025-05-22 16:10:47"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-22 16:10:46"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-05-21 15:42:47"
+  },
+  {
+    "error": "missing \"=\" after \"7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8\" in connection info string\"",
+    "time": "2025-05-13 18:51:34"
+  },
+  {
+    "error": "missing \"=\" after \"7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8\" in connection info string\"",
+    "time": "2025-05-13 18:48:52"
+  },
+  {
+    "error": "missing \"=\" after \"7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8\" in connection info string\"",
+    "time": "2025-05-13 18:48:18"
+  },
+  {
+    "error": "missing \"=\" after \"7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8\" in connection info string\"",
+    "time": "2025-05-13 18:47:23"
+  },
+  {
+    "error": "missing \"=\" after \"7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8\" in connection info string\"",
+    "time": "2025-05-13 18:46:54"
+  },
+  {
+    "error": "missing \"=\" after \"7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8\" in connection info string\"",
+    "time": "2025-05-13 18:37:54"
+  },
+  {
+    "error": "missing \"=\" after \"7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8\" in connection info string\"",
+    "time": "2025-05-13 15:37:08"
+  },
+  {
+    "error": "missing \"=\" after \"7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8\" in connection info string\"",
+    "time": "2025-05-13 15:35:02"
+  },
+  {
     "error": "Not Found",
     "time": "2025-05-03 14:05:25"
   },

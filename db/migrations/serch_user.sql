@@ -1,0 +1,1 @@
+SELECT * from person where profession = $1
