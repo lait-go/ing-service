@@ -1,3 +1,5 @@
 *cmd/.env
 postgresql/
-bert/
+bert/test.go
+bert/test2.go
+bert/bert.py
