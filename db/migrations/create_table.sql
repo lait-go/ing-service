@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS person (
   profession varchar NOT NULL,
   name varchar NOT NULL,
   phone varchar NOT NULL,
-  tg varchar
+  tg varchar,
+  embedding vector(384) 
 );

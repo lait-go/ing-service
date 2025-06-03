@@ -2,9 +2,11 @@ package bot_tg
 
 import (
 	"fmt"
+	"os/exec"
 	"reflect"
 	"tg_res/db"
 	Error "tg_res/internal/err"
+	"tg_res/internal/utils"
 
 	// Error "tg_res/internal/err"
 	// LogWork "tg_res/log"
@@ -78,20 +80,27 @@ func HandleUpdate(update tgbotapi.Update) {
 		user.Tg = update.Message.From.UserName
 	
 		UserAdded(id, user)
+		
+		backCheck(update, id)
 
 	case "search":
 		user := searchUser(text)
 
-		val := reflect.ValueOf(user)
-		typ := reflect.TypeOf(user)
-	
-		for i := 1; i < val.NumField(); i++ {
-			field := typ.Field(i)
-			value := val.Field(i)
-			Bot.Send(tgbotapi.NewMessage(id, fmt.Sprintf("%s = %v", field.Name, value.Interface())))
+		for _, row := range user{
+			val := reflect.ValueOf(row)
+			typ := reflect.TypeOf(row)
+		
+			for i := 1; i < val.NumField(); i++ {
+				field := typ.Field(i)
+				value := val.Field(i)
+				Bot.Send(tgbotapi.NewMessage(id, fmt.Sprintf("%s = %v", field.Name, value.Interface())))
+			}
 		}
+		backCheck(update, id)
 		
 		delete(userSteps, id)
+
+		
 	}
 
 }
@@ -101,11 +110,15 @@ func UserAdded(id int64, user *User) {
 	if err != nil {
 		Bot.Send(tgbotapi.NewMessage(id, "Ошибка при подготовке SQL запроса"))
 	} else {
-		_, err = db.Db.Exec(query, user.Prof, user.Name, user.Num, user.Tg)
+		err := db.Db.QueryRow(query, user.Prof, user.Name, user.Num, user.Tg).Scan(&user.Id)
 		if err != nil {
 			Bot.Send(tgbotapi.NewMessage(id, "Ошибка при записи в базу данных"))
 		} else {
 			Bot.Send(tgbotapi.NewMessage(id, "Вы успешно зарегистрированы!"))
+
+			cmd := exec.Command("python3", "../bert/bert.py", user.Prof, fmt.Sprint(user.Id))
+			err := cmd.Run()
+			Error.GetErr(err)
 		}
 
 		delete(userSteps, id)
@@ -113,17 +126,32 @@ func UserAdded(id int64, user *User) {
 	}
 }
 
-func searchUser(proff string) User{
-	var user User
+func searchUser(proff string) []User{
+	var user []User
+
+	res, err := exec.Command("python3", "../bert/vector_return.py", proff).Output()
+	Error.GetErr(err)
+	fmt.Println(string(res))
+
+	floatRow, err := utils.ParsePgvectorString(string(res))
+	Error.GetErr(err)
+
+	stringRow := utils.FormatVectorForSQL(floatRow)
 
 	date, err := db.Used_sql_with_parms("../db/migrations/serch_user.sql")
 	Error.GetErr(err)
 
-	rows, err := db.Db.Query(date, proff)
+	rows, err := db.Db.Query(date, stringRow)
 	Error.GetErr(err)
 
-	for rows.Next(){
-		rows.Scan(&user.Id, &user.Prof, &user.Name, &user.Num, &user.Tg)
+	defer rows.Close()
+
+	for rows.Next() {
+		var u User
+		var distance float64
+		err = rows.Scan(&u.Name, &distance, &u.Num, &u.Prof, &u.Tg)
+		Error.GetErr(err)
+		user = append(user, u)
 	}
 
 	return user

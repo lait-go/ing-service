@@ -47,7 +47,6 @@ func backInit()tgbotapi.ReplyKeyboardMarkup{
 }
 
 func backCheck(update tgbotapi.Update, id int64){
-	if update.Message.Text == "Назад" {
 		userData[id] = &User{}
 		userSteps[id] = ""
 
@@ -55,5 +54,4 @@ func backCheck(update tgbotapi.Update, id int64){
 		msg.ReplyMarkup = tgbotapi.NewRemoveKeyboard(true)
 		msg.ReplyMarkup = keyInit()
 		Bot.Send(msg)
-	}
 }
