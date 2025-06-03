@@ -1,8 +1,10 @@
 package utils
 
 import (
+	"fmt"
 	"log"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -34,13 +36,37 @@ func TimeFormat() string {
 	return time.Now().Format("2006-01-02 15:04:05")
 }
 
-func FormInit(date interface{})string{
-	switch date.(type){
-	 	case string:
-			return date.(string)
-		case error:
-			return date.(error).Error()
-		default:
+func FormInit(date any) string {
+	switch v := date.(type) {
+	case string:
+		return v
+	case error:
+		return v.Error()
+	default:
+		return ""
 	}
-	return ""
+}
+
+func ParsePgvectorString(s string) ([]float64, error) {
+	s = strings.Trim(s, "[]")
+	parts := strings.Split(s, ",")
+	vec := make([]float64, 0, len(parts))
+
+	for _, p := range parts {
+		var f float64
+		_, err := fmt.Sscanf(strings.TrimSpace(p), "%f", &f)
+		if err != nil {
+			return nil, fmt.Errorf("не удалось распарсить '%s': %v", p, err)
+		}
+		vec = append(vec, f)
+	}
+	return vec, nil
+}
+
+func FormatVectorForSQL(vec []float64) string {
+	parts := make([]string, len(vec))
+	for i, v := range vec {
+		parts[i] = fmt.Sprintf("%f", v)
+	}
+	return fmt.Sprintf("ARRAY[%s]::vector", strings.Join(parts, ","))
 }

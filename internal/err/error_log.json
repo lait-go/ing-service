@@ -1,0 +1,66 @@
+[
+  {
+    "error": "pq: invalid input syntax for type vector: \"ARRAY[]::vector\"",
+    "time": "2025-06-03 11:09:27"
+  },
+  {
+    "error": "не удалось распарсить '': EOF",
+    "time": "2025-06-03 11:09:26"
+  },
+  {
+    "error": "exit status 2",
+    "time": "2025-06-03 11:09:26"
+  },
+  {
+    "error": "pq: invalid input syntax for type vector: \"ARRAY[]::vector\"",
+    "time": "2025-06-03 11:07:25"
+  },
+  {
+    "error": "не удалось распарсить '': EOF",
+    "time": "2025-06-03 11:07:25"
+  },
+  {
+    "error": "exit status 2",
+    "time": "2025-06-03 11:07:25"
+  },
+  {
+    "error": "exit status 1",
+    "time": "2025-06-02 14:30:50"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-06-02 14:30:08"
+  },
+  {
+    "error": "exit status 2",
+    "time": "2025-06-02 10:52:52"
+  },
+  {
+    "error": "exit status 2",
+    "time": "2025-06-02 10:50:52"
+  },
+  {
+    "error": "exit status 2",
+    "time": "2025-06-02 10:42:55"
+  },
+  {
+    "error": "pq: relation \"person\" does not exist",
+    "time": "2025-06-02 10:20:06"
+  },
+  {
+    "error": "Post \"https://api.telegram.org/bot7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8/getMe\": dial tcp 149.154.167.220:443: i/o timeout",
+    "time": "2025-06-01 14:07:35"
+  },
+  {
+    "error": "Post \"https://api.telegram.org/bot7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8/getMe\": dial tcp 149.154.167.220:443: i/o timeout",
+    "time": "2025-06-01 14:02:40"
+  },
+  {
+    "error": "Post \"https://api.telegram.org/bot7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8/getMe\": dial tcp 149.154.167.220:443: i/o timeout",
+    "time": "2025-06-01 13:59:02"
+  },
+  {
+    "error": "Post \"https://api.telegram.org/bot7890309098:AAFL7gotI2h2DDEmLcM7DpLe78R1rd1R5t8/getMe\": dial tcp 149.154.167.220:443: i/o timeout",
+    "time": "2025-06-01 13:58:08"
+  }
+]
