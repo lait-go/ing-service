@@ -20,7 +20,6 @@ type User struct{
 	Tg   string  `db:"tg"`
 }
 
-// где-то глобально
 var userSteps = make(map[int64]string)       // шаг регистрации по chatID
 var userData = make(map[int64]*User)         // данные пользователя по chatID
 
@@ -28,9 +27,19 @@ func HandleUpdate(update tgbotapi.Update) {
 	if update.Message == nil {
 		return
 	}
-	
+
 	id := update.Message.Chat.ID
 	text := update.Message.Text
+
+	if text == "/start" {
+		msg := tgbotapi.NewMessage(id, "Добро пожаловать! Выберите действие:")
+		msg.ReplyMarkup = keyInit() 
+		Bot.Send(msg)
+	}
+
+	if text == "Назад" {
+		backCheck(update, id)
+	}
 
 	switch userSteps[id] {
 	case "":
@@ -38,13 +47,37 @@ func HandleUpdate(update tgbotapi.Update) {
 		case "Добавить резюме":
 			userData[id] = &User{}
 			userSteps[id] = "name"
-			Bot.Send(tgbotapi.NewMessage(id, "Введите ваше имя"))
-	
+			msg := tgbotapi.NewMessage(id, "Введите ваше имя:")
+			msg.ReplyMarkup = tgbotapi.NewRemoveKeyboard(true)
+			msg.ReplyMarkup = backInit()
+			Bot.Send(msg)
+			
 		case "Поиск":
 			userSteps[id] = "search"
-			Bot.Send(tgbotapi.NewMessage(id, "Кого ищем?"))
+			msg := tgbotapi.NewMessage(id, "Кого ищем?")
+			msg.ReplyMarkup = tgbotapi.NewRemoveKeyboard(true)
+			msg.ReplyMarkup = backInit()
+			Bot.Send(msg)
 		default:
 		}
+			
+		
+	case "name":
+			userData[id].Name = text
+			userSteps[id] = "phone"
+			Bot.Send(tgbotapi.NewMessage(id, "Введите ваш номер телефона:"))
+
+	case "phone":
+			userData[id].Num = text
+			userSteps[id] = "prof"
+			Bot.Send(tgbotapi.NewMessage(id, "Какие услуги вы предоставляете?"))
+
+	case "prof":
+		user := userData[id]
+		user.Prof = text
+		user.Tg = update.Message.From.UserName
+	
+		UserAdded(id, user)
 
 	case "search":
 		user := searchUser(text)
@@ -59,41 +92,25 @@ func HandleUpdate(update tgbotapi.Update) {
 		}
 		
 		delete(userSteps, id)
-			
-	case "name":
-		userData[id].Name = text
-		userSteps[id] = "phone"
-		Bot.Send(tgbotapi.NewMessage(id, "Введите ваш номер телефона"))
-
-	case "phone":
-		userData[id].Num = text
-		userSteps[id] = "prof"
-		Bot.Send(tgbotapi.NewMessage(id, "Какие услуги вы предоставляете?"))
-
-	case "prof":
-		user := userData[id]
-		user.Prof = text
-		user.Tg = update.Message.From.UserName
-	
-		query, err := db.Used_sql_with_parms("../db/migrations/add_person.sql")
-		if err != nil {
-			Bot.Send(tgbotapi.NewMessage(id, "Ошибка при подготовке SQL запроса"))
-		} else {
-			_, err = db.Db.Exec(query, user.Prof, user.Name, user.Num, user.Tg)
-			if err != nil {
-				Bot.Send(tgbotapi.NewMessage(id, "Ошибка при записи в базу данных"))
-			} else {
-				Bot.Send(tgbotapi.NewMessage(id, "Вы успешно зарегистрированы!"))
-			}
-	
-			delete(userSteps, id)
-			delete(userData, id)
-		}
-
-	default:
-		Bot.Send(tgbotapi.NewMessage(id, "Нажмите 'Добавить резюме' для начала регистрации"))
 	}
 
+}
+
+func UserAdded(id int64, user *User) {
+	query, err := db.Used_sql_with_parms("../db/migrations/add_person.sql")
+	if err != nil {
+		Bot.Send(tgbotapi.NewMessage(id, "Ошибка при подготовке SQL запроса"))
+	} else {
+		_, err = db.Db.Exec(query, user.Prof, user.Name, user.Num, user.Tg)
+		if err != nil {
+			Bot.Send(tgbotapi.NewMessage(id, "Ошибка при записи в базу данных"))
+		} else {
+			Bot.Send(tgbotapi.NewMessage(id, "Вы успешно зарегистрированы!"))
+		}
+
+		delete(userSteps, id)
+		delete(userData, id)
+	}
 }
 
 func searchUser(proff string) User{

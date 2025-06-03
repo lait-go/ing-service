@@ -14,8 +14,6 @@ func main() {
 	logger := LogWork.LogInit()
 	logger.Info("логер и конфигурации созданы")
 
-	
-
 	db.ProcessingDB()
 
 	defer db.Db.Close()
@@ -47,6 +45,5 @@ func main() {
 	// 	msg.ReplyMarkup = keyboard
 	// 	bot.Send(msg)
 	// }
+
 }
-
-

@@ -19,38 +19,15 @@ func TgInit() {
 		logger.Fatal("ошибка токена")
 	}
 
-	keyboard := keyInit()
-
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
 
 	updates := Bot.GetUpdatesChan(u)
 
 	for update := range updates {
-		if update.Message == nil {
-			continue
-		}
-
-		id := update.Message.Chat.ID
-
-		if _, exists := userSteps[id]; !exists {
-			msg := tgbotapi.NewMessage(id, "")
-			msg.ReplyMarkup = keyboard
-			Bot.Send(msg)
-		}
-
 		HandleUpdate(update)
-		// distrebute(update)
 	}
 }
-
-
-func distrebute(update tgbotapi.Update){
-	switch update.Message.Text{
-		case "Добавить резюме":
-			HandleUpdate(update)
-	}
-} 
 
 func keyInit()tgbotapi.ReplyKeyboardMarkup{
 	return tgbotapi.NewReplyKeyboard(
@@ -59,4 +36,24 @@ func keyInit()tgbotapi.ReplyKeyboardMarkup{
 			tgbotapi.NewKeyboardButton("Поиск"),
 		),
 	)
+}
+
+func backInit()tgbotapi.ReplyKeyboardMarkup{
+	return tgbotapi.NewReplyKeyboard(
+		tgbotapi.NewKeyboardButtonRow(
+			tgbotapi.NewKeyboardButton("Назад"),
+		),
+	)
+}
+
+func backCheck(update tgbotapi.Update, id int64){
+	if update.Message.Text == "Назад" {
+		userData[id] = &User{}
+		userSteps[id] = ""
+
+		msg := tgbotapi.NewMessage(update.Message.From.ID, "Выберите действие:") 
+		msg.ReplyMarkup = tgbotapi.NewRemoveKeyboard(true)
+		msg.ReplyMarkup = keyInit()
+		Bot.Send(msg)
+	}
 }

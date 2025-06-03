@@ -1,4 +1,3 @@
-echo ".env" >> .gitignore
-git rm --cached cmd/.env
-git commit -am "Ignore .env file"
-test/
+*cmd/.env
+postgresql/
+bert/
