@@ -131,13 +131,12 @@ func searchUser(proff string) []User{
 
 	res, err := exec.Command("python3", "../bert/vector_return.py", proff).Output()
 	Error.GetErr(err)
-	fmt.Println(string(res))
 
 	floatRow, err := utils.ParsePgvectorString(string(res))
 	Error.GetErr(err)
-
+	
 	stringRow := utils.FormatVectorForSQL(floatRow)
-
+	
 	date, err := db.Used_sql_with_parms("../db/migrations/serch_user.sql")
 	Error.GetErr(err)
 

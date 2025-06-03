@@ -68,5 +68,5 @@ func FormatVectorForSQL(vec []float64) string {
 	for i, v := range vec {
 		parts[i] = fmt.Sprintf("%f", v)
 	}
-	return fmt.Sprintf("ARRAY[%s]::vector", strings.Join(parts, ","))
+	return fmt.Sprintf("[%s]", strings.Join(parts, ","))
 }
